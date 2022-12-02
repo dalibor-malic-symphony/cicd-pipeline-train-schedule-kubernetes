@@ -12,9 +12,8 @@ pipeline {
             }
         }
         stage('Install Docker') {
-            when { 
-                def dockerNotFound = sh(script: "docker -v", returnStdout: true) == 1
-                equals(actual: dockerNotFound, expected: 1)
+            when {
+                equals(actual: sh(script: "docker -v", returnStdout: true) == 1, expected: 1)
             }
             steps {
                 echo '---- HELLO ----'
