@@ -12,10 +12,13 @@ pipeline {
             }
         }
         stage('Install Docker') {
+            /*
             when {
                 equals(actual: sh(script: "docker -v", returnStdout: true), expected: 'docker: not found')
             }
+            */
             steps {
+                echo sh(script: "docker -v", returnStdout: true)
                 echo '---- HELLO ----'
                 /* 
                 sh 'sudo apt-get update'
